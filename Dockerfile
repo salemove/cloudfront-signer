@@ -8,5 +8,5 @@ RUN cd /src && go build -o cloudfront-signer
 
 FROM alpine
 WORKDIR /app
-COPY --from=build /src/cloudfront-signer /app/
-ENTRYPOINT ./cloudfront-signer
+COPY --from=build /src/cloudfront-signer /usr/local/bin/
+ENTRYPOINT cloudfront-signer

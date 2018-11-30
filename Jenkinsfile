@@ -13,7 +13,7 @@ properties([
 ])
 def isForcePublish = !!currentBuild.rawBuild.getCause(IssueCommentCause)
 
-withResultReporting(slackChannel: '#tm-is', mainBranch: MAIN_BRANCH) {
+withResultReporting(slackChannel: '#tm-inf', mainBranch: MAIN_BRANCH) {
   inDockerAgent(deployer.wrapPodTemplate(containers: [imageScanner.container()])) {
     def version
     def dockerImage
